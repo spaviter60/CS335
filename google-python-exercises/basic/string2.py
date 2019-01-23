@@ -37,7 +37,16 @@ def verbing(s):
 # This dinner is good!
 def not_bad(s):
   # +++your code here+++
-  return
+  strng = ''
+  index1 = s.find('not')
+  index2 = s.find('bad')
+  if(index1 < index2):
+    strng = strng + s[:index1]
+    strng = strng + 'good'
+    strng = strng + s[index2 + 3:]
+  else:
+    strng = s
+  return strng
 
 
 # F. front_back
@@ -51,18 +60,22 @@ def front_back(a, b):
   # +++your code here+++'
   strng = ''
   length_a = len(a)
-  length_b = len
+  length_b = len(b)
+  lengtha = 0
+  lengthb = 0
   if(length_a % 2 == 0):
-    if(length_b % 2 == 0):
-      strng = strng[:int(length_a/2)] + strng[:length_b] + strng[intlength_a/2:] + strng[length_b/2:]
-    else:
-      strng = strng[:length_a/2] + strng[:(length_b + 1)] + strng[length_a/2:] + strng[(length_b + 1) / 2:]
-  else: 
-    if(length_b % 2 == 0):
-      strng = strng[:length_a/2] + strng[:length_b] + strng[length_a/2:] + strng[length_b/2:]
-    else:
-      strng = strng[:length_a/2] + strng[:(length_b + 1)] + strng[length_a/2:] + strng[(length_b + 1) / 2:]
-  return
+    lengtha = length_a/2;
+  else:
+    lengtha = length_a/2 + 1;
+  if(length_b % 2 == 0):
+    lengthb = length_b/2;
+  else:
+    lengthb = int(length_b/2) + 1;
+  strng = strng + a[:lengtha]
+  strng = strng + b[:lengthb] 
+  strng = strng + a[lengtha:] 
+  strng = strng + b[lengthb:]
+  return strng
 
 
 # Simple provided test() function used in main() to print
@@ -73,7 +86,6 @@ def test(got, expected):
   else:
     prefix = '  X '
   print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
-
 
 # main() calls the above functions with interesting inputs,
 # using the above test() to check if the result is correct or not.
