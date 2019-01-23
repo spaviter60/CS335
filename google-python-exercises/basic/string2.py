@@ -16,8 +16,15 @@
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
 def verbing(s):
+  length = len(s)
+  strng = s
+  if(length >= 3):
+    if(s[-3:] == 'ing'):
+      strng = strng + 'ly'
+    else:
+      strng = strng + 'ing'
   # +++your code here+++
-  return
+  return strng
 
 
 # E. not_bad
@@ -41,7 +48,20 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-  # +++your code here+++
+  # +++your code here+++'
+  strng = ''
+  length_a = len(a)
+  length_b = len
+  if(length_a % 2 == 0):
+    if(length_b % 2 == 0):
+      strng = strng[:int(length_a/2)] + strng[:length_b] + strng[intlength_a/2:] + strng[length_b/2:]
+    else:
+      strng = strng[:length_a/2] + strng[:(length_b + 1)] + strng[length_a/2:] + strng[(length_b + 1) / 2:]
+  else: 
+    if(length_b % 2 == 0):
+      strng = strng[:length_a/2] + strng[:length_b] + strng[length_a/2:] + strng[length_b/2:]
+    else:
+      strng = strng[:length_a/2] + strng[:(length_b + 1)] + strng[length_a/2:] + strng[(length_b + 1) / 2:]
   return
 
 
