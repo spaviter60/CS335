@@ -15,14 +15,23 @@
 # It's ok if you do not complete all the functions, and there
 # are some additional functions to try in list2.py.
 
-# A. match_ends
+# Aself match_ends
 # Given a list of strings, return the count of the number of
 # strings where the string length is 2 or more and the first
 # and last chars of the string are the same.
 # Note: python does not have a ++ operator, but += works.
 def match_ends(words):
-  # +++your code here+++
-  return
+  length = len(words)
+  i = 0
+  count = 0
+  while(i < length):
+    if len(words[i]) >= 2:
+      s = words[i]
+      if s[0] == s[-1]:
+        count = count + 1
+    i = i + 1  
+  return count
+
 
 
 # B. front_x
@@ -33,10 +42,20 @@ def match_ends(words):
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 def front_x(words):
-  # +++your code here+++
-  return
-
-
+  list1 = []
+  list2 = []
+  i = 0
+  while i < len(words):
+    s = words[i]
+    if s[0] == 'x':
+      list1.append(s)
+    else:
+      list2.append(s)
+    i = i + 1
+  list1.sort()
+  list2.sort()
+  list1.extend(list2)
+  return list1
 
 # C. sort_last
 # Given a list of non-empty tuples, return a list sorted in increasing
@@ -46,7 +65,8 @@ def front_x(words):
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
   # +++your code here+++
-  return
+  tuples.sort()
+  return tuples
 
 
 # Simple provided test() function used in main() to print
