@@ -5,7 +5,7 @@
 
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
-
+from string import maketrans
 """Wordcount exercise
 Google's Python class
 
@@ -36,7 +36,28 @@ Optional: define a helper function to avoid code duplication inside
 print_words() and print_top().
 
 """
+def print_words(filename):
+  count = {}
+  filein = open(filename,'r')
+  for line in filein:
+    WordsInLine = line.split()
+    transtab = maketrans('!@~#$%^&*()_"/;:,><.[]{}\||', '')
+    WordsInLine = WordsInLine.translate(transtab)
+    
+    for word in WordsInLine:
+      word = word.lower()
+      if word in count:
+        count[word] = count[word] + 1
+      else:
+        count[word] = 1
+  sorted_words = sorted(count.keys())
+  for word in sorted_words:
+    print word, count[word]
 
+  
+def print_top(filename):
+  print
+  
 import sys
 
 # +++your code here+++
